@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" danger>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Brands</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-searchbar primary
+                   [(ngModel)]="search.text"
+                   (ionInput)="searchCampaigns()"
+                   placeholder="Search Brands"
+                   (ionCancel)="onCancel($event)"
+                   (ionBlur)="onBlur($event)"
+                   >
+    </ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content >
+
+
+  <ion-card *ngFor="let brand of brands">
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="brand.image">
+      </ion-avatar>
+      <h2>{{brand.name}}</h2>
+      <p>{{brand.category}}</p>
+      <p>{{brand.tags}}</p>
+    </ion-item>
+
+    <img [src]="brand.image">
+
+    <ion-card-content>
+      <p>{{brand.description}}</p>
+    </ion-card-content>
+
+    <ion-row >
+      <ion-col >
+        <button primary clear small (click)="likeBrand(brand)">
+          <ion-icon name='thumbs-up'></ion-icon>
+          <div>{{brand.likes.length}} Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button primary clear small (click)="shareBrand(brand)">
+          <ion-icon ios="ios-share" md="md-share"></ion-icon>
+          <div>{{brand.shares.length}} Shares</div>
+        </button>
+      </ion-col>
+      <ion-col >
+        <button primary clear small (click)="followBrand(brand)">
+          <ion-icon name='person-add'></ion-icon>
+          <div>{{brand.follow.length}} Opt In</div>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+</ion-content>
+
+<style>
+  .social-cards ion-col {
+    padding: 0;
+  }
+</style>
