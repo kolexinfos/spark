@@ -21,6 +21,14 @@ import { ServiceProvider } from '../providers/service-provider/service-provider'
 import { UserProvider } from '../providers/user-provider/user-provider';
 
 import { Storage } from '@ionic/storage';
+import {   Push } from 'ionic-native';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'aff84569'
+  }
+};
 
 
 @NgModule({
@@ -41,7 +49,8 @@ import { Storage } from '@ionic/storage';
     TrendingPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,6 +69,6 @@ import { Storage } from '@ionic/storage';
     VerifyPage,
     TrendingPage
   ],
-  providers: [BrandProvider,CampaignProvider,ServiceProvider, UserProvider, Storage]
+  providers: [BrandProvider,CampaignProvider,ServiceProvider, UserProvider, Storage, Push]
 })
 export class AppModule {}
