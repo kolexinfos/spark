@@ -7,7 +7,6 @@ import { TutorialPage } from '../pages/tutorial/tutorial'
 import { VerifyPage } from '../pages/verify/verify'
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { TrendingPage } from '../pages/trending/trending';
-import { SearchPage } from '../pages/search/search';
 import { BrandsPage } from '../pages/brands/brands';
 import { SparksPage } from '../pages/sparks/sparks';
 
